@@ -1,19 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import Header from './components/Header';
 import Gallery from './components/Gallery';
 import Container from './components/Container';
 
 
-class App extends Component {
-  render() {
-    return (
-      <div className="container" >
-        <Container />
-        <Header />
-        <Gallery />
-      </div>
-    );
-  }
+
+
+const App = () => {
+  return (
+    <BrowserRouter>
+    <div className="container" >
+      <Container />
+      <Header />
+      <Gallery />
+    </div>
+    </BrowserRouter>
+  );
 }
 
 export default App;

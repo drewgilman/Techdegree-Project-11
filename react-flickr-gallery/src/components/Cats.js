@@ -1,8 +1,12 @@
 import React from 'react';
+import Container from './Container';
 
-const Cats = () => {
+const Cats = (props) => {
   return (
-    <h2>Cats</h2>
+    <div className="photo-container">
+      <h2>Cats</h2>
+      <Container term={props.term} />
+    </div>
   );
 };
 

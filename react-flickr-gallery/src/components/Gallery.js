@@ -1,22 +1,29 @@
-import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import Cats from './Cats';
-import Start from './Start';
+import React from 'react';
+import Image from './Image';
 import NotFound from './NotFound';
 
-class Gallery extends Component {
-  render() {
-    return (
-      <div className="photo-container">
-        <Switch>
-          <Route exact path="/" component={Start}/>
-          <Route path="/cats" component={Cats}/>
-          <Route component={NotFound}/>
-        </Switch>
-      </div>
+const Gallery = (props) => {
 
-    );
+  const results = props.data;
+  let images;
+  if (results.length > 0) {
+    images = results.map(image => {
+      let id = image.id;
+      let secret = image.secret;
+      let server = image.server;
+      let farm = image.farm;
+      let url = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_m.jpg`;
+      return <Image url={url} key={id}/>});
+  } else {
+    images = <NotFound />
   }
-}
 
+
+
+  return(
+    <ul>
+      {images}
+    </ul>
+  );
+};
 export default Gallery;

@@ -6,7 +6,7 @@ class Form extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     let topic = this.topic.value;
-    console.log(this.props);
+    console.log(this.props.history);
   }
 
   render() {

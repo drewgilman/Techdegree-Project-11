@@ -7,7 +7,7 @@ const Navigation = () => {
       <ul>
         <li><NavLink to="/cats">Cats</NavLink></li>
         <li><NavLink to="/dogs">Dogs</NavLink></li>
-        <li><NavLink to="/mice">Mice</NavLink></li>
+        <li><NavLink to="/fish">Fish</NavLink></li>
       </ul>
     </nav>
   );

@@ -6,23 +6,25 @@ import Gallery from './Gallery';
 class Container extends Component {
 
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      images: []
+      images: [],
+      loading: true
     };
   }
 
   componentDidMount() {
-    this.performSearch();
+    this.performSearch(this.props.term);
   }
 
-  performSearch = (query = 'cats') => {
+  performSearch = (query) => {
     axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=12&format=json&nojsoncallback=1
 `)
     .then(response => {
         this.setState({
-          images: response.data.photos.photo
+          images: response.data.photos.photo,
+          loading: false
         });
     })
     .catch(error => {
@@ -33,9 +35,18 @@ class Container extends Component {
   render () {
 
     return (
-      <Gallery data={this.state.images}/>
+      <div>
+        {
+          (this.state.loading)
+          ? <p>Loading...</p>
+          : <Gallery data={this.state.images}/>
+        }
+      </div>
+
     );
   }
 }
 
 export default Container;
+
+//<Gallery data={this.state.images}/>

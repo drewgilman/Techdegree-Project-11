@@ -1,18 +1,25 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Form from './Form';
 import Navigation from './Navigation';
 
-const Header = () => {
-  return(
-    <div>
-      <Form />
-      <Navigation />
-    </div>
+class Header extends Component {
 
+  state = {
+    term: ''
+  }
 
-  );
-
-};
+  render () {
+    return(
+      <div>
+        <Form />
+        <Navigation />
+      </div>
+    );
+  }
+}
 
 
 export default Header;
+
+{/* When the state.term of <Form /> is updated,
+  pass that value, to the state.term of this component as see above*/}

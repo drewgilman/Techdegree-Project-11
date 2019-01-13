@@ -4,7 +4,7 @@ import Container from './Container';
 const Cats = (props) => {
   return (
     <div className="photo-container">
-      <h2>Cats</h2>
+      <h2>Images of {props.term}</h2>
       <Container term={props.term} />
     </div>
   );

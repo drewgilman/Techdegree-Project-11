@@ -1,13 +1,13 @@
 import React from 'react';
 import Container from './Container';
 
-const Search = (props) => {
+const Dogs = (props) => {
   return (
     <div className="photo-container">
-      <h2>{props.term}</h2>
+      <h2>Images of {props.term}</h2>
       <Container term={props.term} />
     </div>
   );
 };
 
-export default Search;
+export default Dogs;

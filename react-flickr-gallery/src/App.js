@@ -30,8 +30,8 @@ class App extends Component {
     e.preventDefault();
     let searchText= this.state.searchText;
     let url = `search/${searchText}`;
-    console.log(url);
   }
+
 
   render () {
     return (

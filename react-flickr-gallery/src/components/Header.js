@@ -3,15 +3,10 @@ import Form from './Form';
 import Navigation from './Navigation';
 
 class Header extends Component {
-
-  state = {
-    term: ''
-  }
-
   render () {
     return(
       <div>
-        <Form />
+        <Form handleSubmit={this.props.handleSubmit} onSearchChange={this.props.onSearchChange}/>
         <Navigation />
       </div>
     );
@@ -20,6 +15,3 @@ class Header extends Component {
 
 
 export default Header;
-
-{/* When the state.term of <Form /> is updated,
-  pass that value, to the state.term of this component as see above*/}

@@ -11,20 +11,39 @@ import Fish from './components/Fish';
 import Search from './components/Search';
 
 
-
-
 class App extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      searchText: ''
+    }
+  }
+
+  onSearchChange = (e) => {
+    this.setState({
+      searchText: e.target.value
+    });
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    let searchText= this.state.searchText;
+    let url = `search/${searchText}`;
+    console.log(url);
+  }
+
   render () {
     return (
       <BrowserRouter>
       <div className="container" >
-        <Header />
+        <Header onSearchChange={this.onSearchChange} handleSubmit={this.handleSubmit}/>
           <Switch>
             <Route exact path="/" component={Start}/>
             <Route path="/cats" render={ () => <Cats term="cats"/>} />
             <Route path="/dogs" render={ () => <Dogs term="dogs"/>} />
             <Route path="/fish" render={ () => <Fish term="fish"/>} />
-            <Route path="/search" render={ () => <Search term="ball"/>}/>
+            <Route path="/search" render={ () => <Search term={this.state.searchText}/>}/>
           </Switch>
       </div>
       </BrowserRouter>

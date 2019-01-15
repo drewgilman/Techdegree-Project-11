@@ -1,27 +1,14 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 
 class Form extends Component {
-
-  state = {
-    term: ''
-  }
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-    let topic = this.topic.value;
-    this.setState({
-      term: topic
-    });
-  }
-
-  render() {
+  render () {
     return (
-      <form onSubmit={this.handleSubmit} className="search-form">
+      <form onSubmit={this.props.handleSubmit} className="search-form">
         <input type="search"
                 name="search"
                 placeholder="Search"
-                ref={(input) => this.topic = input}
+                onChange={this.props.onSearchChange}
                 required/>
         <button type="submit" className="search-button">
           <svg fill="#fff" height="24" viewBox="0 0 23 23" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -33,6 +20,7 @@ class Form extends Component {
     );
   }
 }
+
 
 
 

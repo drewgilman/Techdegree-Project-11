@@ -26,24 +26,27 @@ class App extends Component {
     });
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = (e, history) => {
     e.preventDefault();
     let searchText= this.state.searchText;
     let url = `search/${searchText}`;
+    history.push(url);
   }
 
 
   render () {
+    let searchText= this.state.searchText;
     return (
       <BrowserRouter>
       <div className="container" >
-        <Header onSearchChange={this.onSearchChange} handleSubmit={this.handleSubmit}/>
+      <Route path="/" render={ props =>
+        <Header history={props.history} onSearchChange={this.onSearchChange} handleSubmit={this.handleSubmit}/>} />
           <Switch>
             <Route exact path="/" component={Start}/>
             <Route path="/cats" render={ () => <Cats term="cats"/>} />
             <Route path="/dogs" render={ () => <Dogs term="dogs"/>} />
             <Route path="/fish" render={ () => <Fish term="fish"/>} />
-            <Route path="/search" render={ () => <Search term={this.state.searchText}/>}/>
+            <Route path="/search" render={ () => <Search term={searchText}/>}/>
           </Switch>
       </div>
       </BrowserRouter>

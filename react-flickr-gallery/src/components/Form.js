@@ -3,8 +3,10 @@ import React, {Component} from 'react';
 
 class Form extends Component {
   render () {
+    let history = this.props.history;
     return (
-      <form onSubmit={this.props.handleSubmit} className="search-form">
+      <form onSubmit={e => this.props.handleSubmit(e, history)}
+            className="search-form">
         <input type="search"
                 name="search"
                 placeholder="Search"

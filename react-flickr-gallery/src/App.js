@@ -9,6 +9,7 @@ import Cats from './components/Cats';
 import Dogs from './components/Dogs';
 import Fish from './components/Fish';
 import Search from './components/Search';
+import NotFound from './components/NotFound';
 
 
 class App extends Component {
@@ -28,6 +29,7 @@ class App extends Component {
 
   handleSubmit = (e, history) => {
     e.preventDefault();
+    e.currentTarget.reset();
     let searchText= this.state.searchText;
     let url = `search/${searchText}`;
     history.push(url);
@@ -47,6 +49,7 @@ class App extends Component {
             <Route path="/dogs" render={ () => <Dogs term="dogs"/>} />
             <Route path="/fish" render={ () => <Fish term="fish"/>} />
             <Route path="/search" render={ () => <Search term={searchText}/>}/>
+            <Route path="/notfound" component={NotFound} />
           </Switch>
       </div>
       </BrowserRouter>

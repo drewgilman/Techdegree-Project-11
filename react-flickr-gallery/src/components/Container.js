@@ -5,7 +5,6 @@ import Gallery from './Gallery';
 
 class Container extends Component {
 
-
   constructor(props) {
     super(props);
     this.state = {
@@ -33,7 +32,6 @@ class Container extends Component {
   }
 
   render () {
-
     return (
       <div>
         {
@@ -48,5 +46,3 @@ class Container extends Component {
 }
 
 export default Container;
-
-//<Gallery data={this.state.images}/>

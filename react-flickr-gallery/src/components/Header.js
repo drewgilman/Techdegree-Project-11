@@ -6,7 +6,7 @@ class Header extends Component {
   render () {
     return(
       <div>
-        <Form history={this.props.history} handleSubmit={this.props.handleSubmit} onSearchChange={this.props.onSearchChange}/>
+        <Form history={this.props.history} handleSubmit={this.props.handleSubmit}/>
         <Navigation />
       </div>
     );

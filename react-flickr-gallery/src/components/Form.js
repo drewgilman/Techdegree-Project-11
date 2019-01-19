@@ -2,15 +2,27 @@ import React, {Component} from 'react';
 
 
 class Form extends Component {
+
+  state = {
+    searchText: ''
+  }
+
+  newSearchText = (e) => {
+    this.setState({
+      searchText: e.target.value
+    });
+  }
+
   render () {
+    let newText = this.state.searchText;
     let history = this.props.history;
     return (
-      <form onSubmit={e => this.props.handleSubmit(e, history)}
+      <form onSubmit={e => this.props.handleSubmit(e, history, newText)}
             className="search-form">
-        <input type="search"
+        <input type="text"
                 name="search"
                 placeholder="Search"
-                onChange={this.props.onSearchChange}
+                onChange={this.newSearchText}
                 required/>
         <button type="submit" className="search-button">
           <svg fill="#fff" height="24" viewBox="0 0 23 23" width="24" xmlns="http://www.w3.org/2000/svg">

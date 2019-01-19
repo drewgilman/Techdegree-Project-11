@@ -17,9 +17,7 @@ const Gallery = (props) => {
   } else {
     images = <NotFound />
   }
-
-
-
+  
   return(
     <ul>
       {images}

@@ -17,8 +17,14 @@ class Container extends Component {
     this.performSearch(this.props.term);
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.term !== prevProps.term) {
+      this.performSearch(this.props.term);
+    }
+  }
+
   performSearch = (query) => {
-    axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=12&format=json&nojsoncallback=1
+    axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&sort=relevance&per_page=12&format=json&nojsoncallback=1
 `)
     .then(response => {
         this.setState({

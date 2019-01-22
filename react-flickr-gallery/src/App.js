@@ -13,6 +13,7 @@ import Search from './components/Search';
 
 class App extends Component {
 
+//Retrieve history to push, and input field text from within the Form
   handleSubmit = (e, history, newText) => {
     e.preventDefault();
     e.currentTarget.reset();

@@ -7,6 +7,7 @@ class Form extends Component {
     searchText: ''
   }
 
+//When user types into search field, state is updated to send back up the DOM to the Container
   newSearchText = (e) => {
     this.setState({
       searchText: e.target.value

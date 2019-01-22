@@ -8,6 +8,7 @@ const Gallery = (props) => {
   let images;
   if (results.length > 0) {
     images = results.map(image => {
+      //setup variables to construct image URL from the JSON data
       let id = image.id;
       let secret = image.secret;
       let server = image.server;
@@ -17,7 +18,7 @@ const Gallery = (props) => {
   } else {
     images = <NotFound />
   }
-  
+
   return(
     <ul>
       {images}

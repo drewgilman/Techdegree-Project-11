@@ -2,6 +2,7 @@
   "name": "react-flickr-gallery",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://drewgilman.github.io/Techdegree-Project-11/react-flickr-gallery",
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.2.1",
@@ -16,6 +17,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

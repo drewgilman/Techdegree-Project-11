@@ -20,7 +20,6 @@
 
 # Config
 /src/components/config.js
-testing
 
 npm-debug.log*
 yarn-debug.log*
